@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<aggregator enabled="true">
+        <id>wpbl1</id>
+        <name>blogdigger.com</name>
+        <step>
+            <order>2</order>
+            <params>
+                <param type="callbackFunction">
+                    <name>rss</name>
+                    <value>wpbl_callback_rss_feed_url</value>
+                </param>
+            </params>
+            <url formIDType="name" formIDValue="addform" method="POST" name="addFeed">http://www.blogdigger.com/add.jsp</url>
+            <successRegx>|Thanks|</successRegx>
+        </step>
+    </aggregator>
+    <aggregator enabled="true">
+        <id>wpbl2</id>
+        <name>blogpulse.com</name>
+        <step>
+            <order>2</order>
+            <params>
+                <param type="value">
+                    <name>from</name>
+                    <value>wpblblog2@gmail.com</value>
+                </param>
+                <param type="callbackFunction">
+                    <name>body</name>
+                    <value>wpbl_callback_post_url</value>
+                </param>
+            </params>
+            <url formIDType="index" formIDValue="1" method="POST" name="addFeed">http://blogpulse.com/submit.html</url>
+            <successRegx>|Thank you|</successRegx>
+        </step>
+    </aggregator>
+	<aggregator enabled="true">
+        <id>wpbl4</id>
+        <name>icerocket.com</name>
+        <step>
+            <order>2</order>
+            <url formIDType="name" formIDValue="addblog" method="POST" name="addFeed">http://www.icerocket.com/c?p=addblog</url>
+            <successRegx>|Thanks|</successRegx>
+            <params>
+                <param type="callbackFunction">
+                    <name>url</name>
+                    <value>wpbl_callback_rss_feed_url</value>
+                </param>
+            </params>
+        </step>
+    </aggregator>
+	<aggregator enabled="false">
+        <id>wpbl5</id>
+        <name>ngoid.sourceforge.net</name>
+        <step>
+            <order>2</order>
+            <params>
+                <param type="callbackFunction">
+                    <name>url</name>
+                    <value>wpbl_callback_rss_feed_url</value>
+                </param>
+            </params>
+            <url formIDType="index" formIDValue="0" method="POST" name="addFeed">http://ngoid.sourceforge.net/sub_rss.php</url>
+            <successRegx>|.*|</successRegx>
+        </step>
+    </aggregator>
+	<aggregator enabled="true">
+        <id>wpbl6</id>
+        <name>rss-network.com</name>
+        <step>
+            <order>2</order>
+            <params>
+                <param type="callbackFunction">
+                    <name>url</name>
+                    <value>wpbl_callback_rss_feed_url</value>
+                </param>
+                <param type="value">
+                    <name>category</name>
+                    <value>66</value>
+                </param>
+				<param type="value">
+                    <name>title</name>
+                    <value>title of post</value>
+                </param>
+            </params>
+            <url formIDType="name" formIDValue="addform" method="POST" name="addFeed">http://www.rss-network.com/submitrss.php</url>
+            <successRegx>|feed successfully added|</successRegx>
+        </step>
+    </aggregator>
+	<aggregator enabled="true">
+        <id>wpbl7</id>
+        <name>feeds2read.net</name>
+        <step>
+            <order>2</order>
+            <params>
+                <param type="callbackFunction">
+                    <name>feedurl</name>
+                    <value>wpbl_callback_rss_feed_url</value>
+                </param>
+            </params>
+            <url formIDType="index" formIDValue="0" method="POST" name="addFeed">http://feeds2read.net/Try-Custom-Feed</url>
+            <successRegx>|rssmaindesc|</successRegx>
+        </step>
+    </aggregator>
+	<aggregator enabled="true">
+        <id>wpbl8</id>
+        <name>feedgy.com</name>
+        <step>
+            <order>2</order>
+            <params>
+                <param type="value">
+                    <name>template$m_RSSURL</name>
+                    <value>wpbl_callback_rss_feed_url</value>
+                </param>
+            </params>
+            <url formIDType="index" formIDValue="1" method="POST" name="addFeed">http://www.feedgy.com/Submit.aspx</url>
+            <successRegx>|has been submitted|</successRegx>
+        </step>
+    </aggregator>
+	<aggregator enabled="true">
+        <id>wpbl9</id>
+        <name>rssmotron.com</name>
+		<step>
+            <order>1</order>
+            <url formIDType="url" formIDValue="http://www.rssmotron.com/logout.php">[auto]</url>
+            <successRegx>|RSS Category List|</successRegx>
+        </step>
+		<step>
+            <order>2</order>
+            <url formIDType="name" formIDValue="newUser" method="POST" name="newUser">http://www.rssmotron.com/login.php</url>
+            <successRegx>|Welcome to your account|</successRegx>
+            <params>
+                <param type="callbackFunction">
+                    <name>username</name>
+                    <value>wpbl_callback_user</value>
+                </param>
+                <param type="callbackFunction">
+                    <name>password</name>
+                    <value>wpbl_callback_pass</value>
+                </param>
+            </params>
+        </step>
+        <step>
+            <order>3</order>
+            <params>
+                <param type="callbackFunction">
+                    <name>url</name>
+                    <value>wpbl_callback_rss_feed_url</value>
+                </param>
+                <param type="value">
+                    <name>category</name>
+                    <value>33</value>
+                </param>
+            </params>
+            <url formIDType="index" formIDValue="1" method="POST" name="addFeed">http://www.rssmotron.com/feed_submission.php</url>
+            <successRegx>|Please confirm your feed at the bottom|</successRegx>
+        </step>
+        <step>
+            <order>4</order>
+            <url formIDType="index" formIDValue="1">[auto]</url>
+            <successRegx>|Feed Added|</successRegx>
+        </step>
+    </aggregator>
+    <aggregator enabled="false">
+        <id>wpbl10</id>
+        <name>feedagg.com</name>
+		<step>
+            <order>1</order>
+            <url formIDType="index" formIDValue="0" method="POST" name="login">http://feedagg.com/feedbookmarks.php</url>
+            <successRegx>|&#60;p&#62;Hi|</successRegx>
+            <params>
+                <param type="callbackFunction">
+                    <name>UserName</name>
+					<value>wpbl_callback_user</value>
+                </param>
+                <param type="callbackFunction">
+                    <name>Password</name>
+					<value>wpbl_callback_pass</value>
+                </param>
+            </params>
+        </step>
+        <step>
+            <order>2</order>
+            <params>
+                <param type="callbackFunction">
+                    <name>FeedURL</name>
+                    <value>wpbl_callback_rss_feed_url</value>
+                </param>
+                <param type="callbackFunction">
+                    <name>Tags</name>
+                    <value>wpbl_callback_rss_feed_tags</value>
+                </param>
+                <param type="callbackFunction">
+                    <name>random_user</name>
+                    <value>wpbl_callback_FeedAgg_id_number</value>
+                </param>
+                <param type="value">
+                    <name>sep</name>
+                    <value>,</value>
+                </param>
+            </params>
+            <url formIDType="name" formIDValue="AddURL" method="POST" name="addFeed">http://feedagg.com/add_feed.php</url>
+            <successRegx>|has been saved|</successRegx>
+        </step>
+    </aggregator>
+    <aggregator enabled="true">
+        <id>wpbl11</id>
+        <name>overskrift.dk</name>
+        <step>
+            <order>1</order>
+            <params>
+                <param type="callbackFunction">
+                    <name>qname</name>
+					<value>wpbl_callback_user</value>
+                </param>
+                <param type="callbackFunction">
+                    <name>qpassword</name>
+					<value>wpbl_callback_pass</value>
+                </param>
+            </params>
+            <url formIDType="index" formIDValue="0" method="POST" name="login">http://overskrift.dk/user/logon.php</url>
+            <successRegx>|&#62;Log ud&#60;/a&#62;|</successRegx>
+        </step>
+        <step>
+            <order>2</order>
+            <params>
+                <param type="callbackFunction">
+                    <name>qfeedurl</name>
+                    <value>wpbl_callback_rss_feed_url</value>
+                </param>
+                <param type="value">
+                    <name>qemail</name>
+                    <value>wpblblog2@gmail.com</value>
+                </param>
+                <param type="value">
+                    <name>qcategory</name>
+                    <value>80</value>
+                </param>
+            </params>
+            <url formIDType="name" formIDValue="formOpret" method="POST" name="addFeed">http://overskrift.dk/submit.php</url>
+            <successRegx>|Tak for indsendelse af dit feed|</successRegx>
+        </step>
+    </aggregator>
+    <aggregator enabled="true">
+        <id>wpbl12</id>
+        <name>newsisfree.com</name>
+        <step>
+            <order>1</order>
+            <url formIDType="index" formIDValue="1" method="POST" name="login">http://www.newsisfree.com/user/login/</url>
+            <successRegx>|Your Subscriptions|</successRegx>
+            <params>
+                <param type="callbackFunction">
+                    <name>FUSER</name>
+                    <value>wpbl_callback_user</value>
+                </param>
+                <param type="callbackFunction">
+                    <name>FPASSWD</name>
+                    <value>wpbl_callback_pass</value>
+                </param>
+            </params>
+        </step>
+        <step>
+            <order>2</order>
+            <url formIDType="index" formIDValue="1" method="POST" name="addFeed">http://www.newsisfree.com/user/sub/</url>
+            <successRegx>|Select the page you would like to add|</successRegx>
+            <params>
+                <param type="callbackFunction">
+                    <name>url</name>
+                    <value>wpbl_callback_rss_feed_url</value>
+                </param>
+            </params>
+        </step>
+		<step>
+            <order>3</order>
+            <url formIDType="index" formIDValue="2">[auto]</url>
+            <successRegx>|Initializing|</successRegx>
+        </step>
+    </aggregator>
+</root>
